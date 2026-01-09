@@ -9,7 +9,6 @@ public class SecureUserService {
     private static final String SECRET_KEY = System.getenv("ENCRYPTION_KEY");
     private final SecureRandom random = new SecureRandom();
     
-    // Secure password hashing
     public String hashPassword(String password) {
         try {
             byte[] salt = new byte[16];
@@ -25,7 +24,6 @@ public class SecureUserService {
         }
     }
     
-    // Secure file path validation
     public String sanitizeFilePath(String userPath) {
         if (userPath == null || userPath.isEmpty()) {
             throw new IllegalArgumentException("Path cannot be empty");
